@@ -59,7 +59,7 @@ class Parser {
             let item = Item()
             
             item.imageURL = product.firstNode(matchingSelector: "img")?.attributes["src"]
-            item.title = product.firstNode(matchingSelector: "span")?.textContent.textByTrimming()
+            item.title = product.firstNode(matchingSelector: "span[class='title text-uppercase']")?.textContent.textByTrimming()
             item.subTitle = product.firstNode(matchingSelector: "span[itemprop='name']")?.textContent.textByTrimming()
             item.priceString = product.firstNode(matchingSelector: "span[itemprop='price']")?.textContent.textByTrimming()
             
