@@ -25,11 +25,13 @@ extension UIImageView {
     }
     
     func setWebImage(_ path: String){
-        if urlParh != nil && urlParh != path{
+        image = nil
+        let _path = path.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
+        if urlParh != nil && urlParh != _path {
             WebImageManager.sharedInstance.cancelOperation(urlParh!)
         }
         
-        urlParh = path
+        urlParh = _path
         WebImageManager.sharedInstance.downloadWebImage(urlParh!, completion: { (image) -> () in
             self.image = image
             self.urlParh = nil
