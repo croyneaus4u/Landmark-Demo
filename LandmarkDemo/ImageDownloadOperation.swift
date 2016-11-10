@@ -28,8 +28,10 @@ class ImageDownloadOperation: Operation {
         
         var image: UIImage?
         if path != nil {
-            let url = URL(string: path!)
-            let data = try? Data(contentsOf: url!)
+            guard let url = URL(string: path!) else {
+                return
+            }
+            let data = try? Data(contentsOf: url)
             
             if (self.isCancelled) {return}
             

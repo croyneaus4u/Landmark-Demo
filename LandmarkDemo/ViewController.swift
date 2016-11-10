@@ -30,7 +30,7 @@ class ViewController: UICollectionViewController, UICollectionViewDelegateFlowLa
     }
     
     func getData () {
-        requestor.makeGETRequestWithparameters(urlString: "http://www.landmarkshops.com", success: { [weak self] (result) in
+        requestor.makeGETRequestWithparameters(urlString: "http://www.landmarkshops.in", success: { [weak self] (result) in
             //print(result ?? "")
             let document = HTMLDocument(string: result as! String)
             self?.createDataSource(document: document)
