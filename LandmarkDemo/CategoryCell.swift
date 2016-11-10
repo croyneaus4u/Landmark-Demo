@@ -121,7 +121,7 @@ class CategoryCell: UICollectionViewCell, UICollectionViewDataSource, UICollecti
     // MARK:- Scroll delegate
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let x = scrollView.contentOffset.x
-        let pageNum: Int = Int(x / scrollView.frame.size.width)
+        let pageNum: Int = Int((x+15)/scrollView.frame.size.width)
         
         if(paginator.currentPage != pageNum) {
             paginator.currentPage = pageNum
